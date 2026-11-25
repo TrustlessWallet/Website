@@ -59,23 +59,8 @@ img { max-width: 100%; display: block }
 .store-button:hover, .button:hover { background: #ffd096 }
 .text-link { font-size: .98rem; font-weight: 580; text-decoration-thickness: 1px }
 .text-link:hover { text-decoration-thickness: 2px }
-.showcase { isolation: isolate; position: relative; height: clamp(26rem,38vw,36rem); border-radius: 1.2rem; overflow: hidden; margin: 0; background-color: #352513; background-image: radial-gradient(ellipse at 82% 18%,#d98d49 0%,transparent 42%),linear-gradient(140deg,#403322 4%,#7d502c 61%,#392a1e 100%) }
-.showcase::before, .showcase::after { position: absolute; pointer-events: none; content: "" }
-.showcase::before { inset: -42% -52%; z-index: -1; background: repeating-radial-gradient(ellipse at 55% 74%, transparent 0 14px,rgba(255,214,146,.29) 15px,transparent 16px 23px); transform: rotate(-28deg) }
-.showcase::after { inset: 0; box-shadow: inset 0 0 0 1px #ffffff23; border-radius: inherit }
-.showcase img { position: absolute; left: 50%; top: 10%; height: auto; width: min(55%, 305px); transform: translateX(-50%) rotate(7deg); border-radius: 2.25rem; filter: drop-shadow(9px 18px 16px #160e0a75) }
-.merchant .showcase { background: radial-gradient(ellipse at 19% 10%,#acbb9a,transparent 47%),linear-gradient(125deg,#536c55,#233c32 82%) }
-.merchant .showcase::before { background: repeating-radial-gradient(ellipse at 48% 74%, transparent 0 15px,rgba(222,230,186,.27) 16px,transparent 17px 25px); transform: rotate(28deg) }
-.merchant .showcase img { transform: translateX(-50%) rotate(-7deg) }
-.paper-section { background: var(--paper); color: var(--ink); padding-block: clamp(3.6rem,7vw,7.2rem) }
 .section-label { color: #5e665a; margin-bottom: 1rem }
 .section-title, .band h2 { font-size: clamp(2.55rem,5vw,4.6rem); line-height: 1.03 }
-.section-head { max-width: 53rem; margin-bottom: clamp(2.1rem,4vw,3.8rem) }
-.feature-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: clamp(1.1rem,3vw,3.2rem) }
-.feature { border-top: 1px solid #9a9e91; padding-top: 1.4rem; display: flex; flex-direction: column; align-items: flex-start }
-.feature h3 { margin: 0; font-size: clamp(1.35rem,2vw,1.7rem); line-height: 1.2; letter-spacing: -.04em; font-weight: 620 }
-.feature p { color: #454c43; margin: .7rem 0 1.15rem; max-width: 37ch }
-.feature .text-link { margin-top: auto }
 .band { padding-block: clamp(3.5rem,7vw,7rem); background: var(--bg); color: var(--fg) }
 .band-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem,7vw,7rem); align-items: start }
 .band .section-label { color: var(--accent) }
@@ -106,11 +91,7 @@ img { max-width: 100%; display: block }
   .hero-copy { padding: 0 }
   .hero h1 { font-size: clamp(3.25rem,10vw,5.25rem) }
   .hero-copy > .lead { margin: 1.15rem 0 1.45rem }
-  .showcase { height: clamp(19rem,65vw,27rem) }
-  .showcase img { width: min(52%,260px); border-radius: 1.75rem }
-  .feature-grid, .band-grid { grid-template-columns: 1fr }
-  .feature-grid { gap: 1.7rem }
-  .feature p { max-width: 55ch }
+  .band-grid { grid-template-columns: 1fr }
   .cross-inner, .footer-grid { flex-direction: column; align-items: flex-start }
   .footer-links { justify-content: flex-start }
 }
@@ -121,7 +102,6 @@ img { max-width: 100%; display: block }
   .primary-nav a { font-size: .9rem }
   .wordmark { font-size: 1.5rem }
 }
-.language-link { margin: 1rem 0 0; color: var(--muted); font-size: .92rem }
 
 .field-section { padding-block:clamp(3rem,7vw,6rem); border-bottom:1px solid var(--line) }
 .field-grid { display:grid; grid-template-columns:1.2fr 1fr; align-items:center; gap:clamp(2rem,6vw,6rem) }
@@ -148,7 +128,7 @@ img { max-width: 100%; display: block }
 }
 :root { --mono: "Space Mono", ui-monospace, SFMono-Regular, Consolas, monospace }
 .primary-nav a, .header-download, .actions a, .button, .locale-picker,
-.feature h3, .section-title, .band h2, .cross-link h2, .g-layout h2,
+.section-title, .band h2, .cross-link h2, .g-layout h2,
 .g-toc, .g-article strong, .g-cards span, .hero h1, .hero h1 em, .g-title h1 {
   font-family:var(--mono);
 }

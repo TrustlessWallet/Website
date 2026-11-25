@@ -1,0 +1,88 @@
+/* Each hero pairs two real views of one task. Keep their useful controls in frame. */
+.hero-art {
+  isolation: isolate;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  margin: 0;
+  aspect-ratio: 1.12;
+  border-radius: 1.1rem;
+}
+.hero-art::before,
+.hero-art::after {
+  position: absolute;
+  content: "";
+  pointer-events: none;
+}
+.hero-art--wallet {
+  background: linear-gradient(138deg, #15130f 4%, #3e3327 48%, #84735e 100%);
+}
+/* A large machined brass disc picks out the edge of the black wallet. */
+.hero-art--wallet::before {
+  width: 125%;
+  aspect-ratio: 1;
+  left: -42%;
+  top: -27%;
+  border-radius: 50%;
+  background: repeating-radial-gradient(circle, transparent 0 5px, #f7d59d26 6px, transparent 7px 10px),
+    conic-gradient(from 35deg, #57412b, #b09571, #59422b, #c3a27c, #57412b);
+  box-shadow: inset -1px -2px 1px #eed9b9a3, 2px 4px 2px #2a241c, 7px 10px 12px #1b171380;
+}
+.hero-art--terminal {
+  background: linear-gradient(123deg, #d9dfd6 0%, #b5beb4 53%, #919c90 100%);
+}
+/* The edge of a dark counter runs beneath the checkout screens. */
+.hero-art--terminal::before {
+  inset: 50% -20% -36%;
+  transform: skewY(-16deg);
+  background: linear-gradient(110deg, #3b4842, #1f2d29 80%);
+  border-top: 2px solid #e8efdf;
+  box-shadow: 0 -2px 8px #59625833;
+}
+.hero-art::after {
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px #ffffff26;
+  z-index: 3;
+}
+.hero-art img {
+  position: absolute;
+  display: block;
+  height: auto;
+  max-width: none;
+  filter: drop-shadow(5px 12px 9px #13150f55);
+}
+.hero-art--wallet .hero-art-primary {
+  width: 45%;
+  top: 4%;
+  left: 8%;
+  transform: rotate(-10deg);
+  z-index: 2;
+}
+.hero-art--wallet .hero-art-secondary {
+  width: 41%;
+  top: 17%;
+  right: 5%;
+  transform: rotate(8deg);
+  z-index: 1;
+}
+.hero-art--terminal .hero-art-primary {
+  width: 42%;
+  top: 4%;
+  left: 8%;
+  transform: rotate(-6deg);
+  z-index: 1;
+}
+.hero-art--terminal .hero-art-secondary {
+  width: 43%;
+  top: 18%;
+  right: 6%;
+  transform: rotate(5deg);
+  z-index: 2;
+}
+@media (max-width: 760px) {
+  .hero-art { aspect-ratio: 1.32; }
+}
+@media (max-width: 450px) {
+  .hero-art { aspect-ratio: 1.04; }
+}
