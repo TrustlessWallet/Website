@@ -300,5 +300,19 @@
   "Sign offline": "Firma offline",
   "Open the PSBT on your compatible offline signer. Check the recipient, amount and fee on its screen, then sign with the keys held there.": "Apri la PSBT sul dispositivo di firma offline compatibile. Controlla destinatario, importo e commissione sul suo schermo, poi firma con le chiavi custodite sul dispositivo.",
   "Broadcast from Trustless": "Trasmetti da Trustless",
-  "Bring the signed transaction back to Trustless and broadcast it to the Bitcoin network. Follow its confirmations in the wallet history.": "Riporta la transazione firmata in Trustless e trasmettila alla rete Bitcoin. Segui le conferme nello storico del wallet."
+  "Bring the signed transaction back to Trustless and broadcast it to the Bitcoin network. Follow its confirmations in the wallet history.": "Riporta la transazione firmata in Trustless e trasmettila alla rete Bitcoin. Segui le conferme nello storico del wallet.",
+  "Tap Import signed transaction and scan the QR on your signing device. Review the transaction in Trustless, authorize the broadcast and follow its confirmations in History.": "Tocca Import signed transaction e inquadra il QR sul dispositivo di firma. Controlla la transazione in Trustless, autorizza la trasmissione e segui le conferme nello storico.",
+  "Check the numbers on your signer": "Controlla gli importi sul dispositivo di firma",
+  "For a 10,000 sat supplier payment, check the destination address and the amount the supplier receives. A 141 sat network fee brings your total spend to 10,141 sats.": "Per un pagamento di 10.000 sat a un fornitore, controlla l’indirizzo di destinazione e la somma che riceverà. Con 141 sat di commissione di rete spendi in totale 10.141 sat.",
+  "Supplier": "Fornitore",
+  "10,000 sats": "10.000 sat",
+  "Network fee": "Commissione di rete",
+  "141 sats": "141 sat",
+  "Total spend": "Spesa totale",
+  "10,141 sats": "10.141 sat",
+  "Trustless transaction review showing a 10,000 sat payment and a 141 sat network fee": "Riepilogo della transazione in Trustless con un pagamento di 10.000 sat e una commissione di rete di 141 sat",
+  "Lightning invoice for the example €4.50 sale": "Richiesta Lightning per la vendita di esempio da 4,50 €",
+  "Terminal confirms the example payment was received": "Terminal conferma la ricezione del pagamento di esempio",
+  "The example purchase recorded in Terminal sales history": "La vendita di esempio registrata nello storico di Terminal",
+  "Terminal screens shown with demonstration data.": "Schermate di Terminal con dati dimostrativi."
 }
