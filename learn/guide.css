@@ -56,3 +56,28 @@
 .g-title h1 {font-family:var(--mono);font-size:clamp(2rem,5.1vw,4.8rem);line-height:1.1;letter-spacing:-.065em}
 .g-layout h2 {font-family:var(--mono);font-size:clamp(1.35rem,2.65vw,2.15rem)}
 .g-layout {overflow-wrap:break-word}
+
+/* The question directory works as native disclosures, even offline or without scripts. */
+.g-index .g-title { margin-bottom:clamp(1.75rem,4vw,3.5rem); }
+.g-index [hidden] { display:none !important; }
+.g-search { margin:0 0 2.3rem; max-width:48rem; }
+.g-search label { display:block; margin:0 0 .65rem; font-size:1rem; font-weight:600; }
+.g-search-field { display:flex; align-items:center; gap:.5rem; padding:.25rem .45rem .25rem 1.1rem; background:var(--panel); color:var(--fg); border:1px solid var(--line); border-radius:.85rem; }
+.g-search-field:focus-within { outline:2px solid var(--accent); outline-offset:2px; }
+.g-search-field input { min-width:0; flex:1; padding:.65rem 0; font:inherit; font-size:1.05rem; line-height:1.6; border:0; outline:0; border-radius:0; color:inherit; background:transparent; appearance:none; }
+.g-search-field input::-webkit-search-cancel-button { display:none; }
+.g-search-field button { flex:none; min-height:44px; max-width:42%; border:0; background:transparent; color:var(--fg); font:inherit; font-size:.9rem; cursor:pointer; text-decoration:underline; text-underline-offset:.2em; }
+.g-search-field button:focus-visible { outline:2px solid var(--accent); }
+.g-result-count { color:var(--muted); font-size:.95rem; margin:.65rem 0; }
+.g-no-results { border-top:1px solid var(--line); padding:2rem 0; }
+.g-no-results p { color:var(--muted); line-height:1.55; max-width:64ch; }
+.g-questions { list-style:none; margin:0; padding:0; }
+.g-answer { border-bottom:1px solid var(--line); }
+.g-answer:last-child { border-bottom:0; }
+.g-answer summary { display:flex; gap:1rem; align-items:center; justify-content:space-between; padding:1.1rem .12rem; list-style:none; cursor:pointer; font-size:clamp(1.1rem,1.8vw,1.35rem); line-height:1.35; font-weight:600; letter-spacing:-.025em; }
+.g-answer summary::-webkit-details-marker { display:none; }
+.g-answer summary::after { content:"+"; margin-inline-start:auto; font:1.4rem/1 var(--mono); color:var(--accent); }
+.g-answer details[open] summary::after { content:"−"; }
+.g-answer summary:hover { color:var(--accent); }
+.g-answer details p { max-width:66ch; margin:0; color:var(--muted); font-size:1rem; line-height:1.65; }
+.g-answer details a { display:inline-block; margin:.6rem 0 1.2rem; font-size:.98rem; color:var(--fg); text-decoration:underline; text-underline-offset:.22em; }
