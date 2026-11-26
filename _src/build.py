@@ -81,7 +81,7 @@ class Renderer(HTMLParser):
 
     def handle_endtag(self, tag):
         if tag=="head":
-            favicon = self.relative("assets/icon-32.png")
+            favicon = self.relative("assets/favicon-rounded.png")
             touch_icon = self.relative("assets/icon-180.png")
             self.parts.append(f'<link rel="icon" type="image/png" sizes="32x32" href="{favicon}">')
             self.parts.append(f'<link rel="apple-touch-icon" sizes="180x180" href="{touch_icon}">')
