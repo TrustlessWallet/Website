@@ -155,4 +155,4 @@ img { max-width: 100%; display: block }
 }
 
 .wordmark {display:inline-flex;align-items:center;gap:.36em}
-.wordmark::before {content:"";width:1em;height:1em;background:white url("assets/icon-32.png") center/contain no-repeat;border-radius:.18em}
+.wordmark::before {content:"";width:1em;height:1em;background:white url("assets/favicon-rounded.png") center/contain no-repeat;border-radius:.18em}

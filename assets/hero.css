@@ -41,7 +41,7 @@
 .field-photos {position:relative;isolation:isolate;background:#2e2217}
 .field-photos::before {width:115%;right:-8%;opacity:.7}
 .field-photos > * {position:relative}
-.merchant .sale-screen {background:#d9e7d9;border-radius:.3rem .3rem 0 0;border-bottom:.35rem dotted var(--panel)}
+.merchant .sale-screen {background:#d9e7d9;border-radius:.3rem .3rem 0 0;border:0}
 .page-jumps {border-bottom:1px solid var(--line)}
 @media(max-width:760px) {
   .hero-grid {grid-template-columns:minmax(0,1fr);gap:1rem}
@@ -62,4 +62,60 @@
 .hero-grid {z-index:1}
 @media(max-width:760px) {
   .hero::after {background:linear-gradient(180deg,var(--plate) 40%,transparent 70%)}
+}
+
+/* Art direction follows the place where the wallet is used. */
+.wallet {--scene:url("alpine-lake.webp");--tour-ink:#fbb05a}
+.merchant {--scene:url("coffee-counter.webp");--tour-ink:#9ed9bd}
+.field-photos {background:linear-gradient(0deg,#10251b73,transparent),url("alpine-lake.webp") center/cover}
+.field-photos::before {display:none}
+#checkout,.product-stories {counter-reset:chapter}
+#checkout li,.product-story {counter-increment:chapter}
+#checkout li h3::before,.product-story h3::before {
+  content:counter(chapter,decimal-leading-zero);display:block;color:var(--accent);
+  font:400 .86rem/1 var(--mono);margin-bottom:.85rem;letter-spacing:.15em
+}
+@media(min-width:800px) and (min-height:520px) {
+  .tour-layout {display:grid;grid-template-columns:minmax(0,1.38fr) minmax(0,1fr);gap:0 clamp(2rem,5vw,5rem)}
+  .tour-layout > h2,.tour-layout > .demo-caption {grid-column:1/-1}
+  .tour-layout > h2 {max-width:22ch;margin-bottom:2rem}
+  .tour-layout .tour-stage {
+    position:sticky;top:6svh;height:88svh;max-height:52rem;overflow:hidden;
+    isolation:isolate;background:#1b2724;border-radius:.55rem
+  }
+  .tour-stage::before {content:"";position:absolute;inset:-5%;background:linear-gradient(135deg,#08100b22,#08100b88),var(--scene) center/cover;transform:scale(1.08) translateX(calc(var(--chapter,0)*-1%));transition:transform .8s}
+  .tour-stage .sale-screen,.tour-stage .story-shot {
+    position:absolute;inset:0;display:grid;place-items:center;margin:0;background:transparent;
+    border:0;height:100%;padding:2rem;opacity:0;pointer-events:none;transform:translateY(3rem) rotate(4deg) scale(.94);
+    transition:opacity .42s,transform .65s cubic-bezier(.2,.75,.2,1)
+  }
+  .tour-stage .in-view {opacity:1;pointer-events:auto;transform:none}
+  .tour-stage .screen-expand {height:min(100%,64vh);max-height:100%}
+  .tour-stage img {height:100%;width:auto;object-fit:contain;filter:drop-shadow(0 1rem 1rem #0008)}
+  .tour-layout > .story-grid,.tour-layout > ol {display:block;margin:0;padding:0}
+  .tour-layout .product-story,.tour-layout li {min-height:72svh;display:flex;flex-direction:column;justify-content:center;border:0;padding:2rem 0}
+  .tour-layout h3 {font:700 clamp(1.6rem,3vw,3rem)/1.13 var(--mono);letter-spacing:-.065em}
+  .tour-layout li p,.tour-layout figcaption p {font-size:1.13rem;max-width:37ch}
+  .tour-layout li::before,.tour-layout figcaption::before {content:"";display:block;height:2px;width:3rem;background:var(--line);transition:width .6s,background .6s}
+  .tour-layout .current-step::before,.tour-layout .current-step figcaption::before {width:100%;background:var(--accent)}
+  .tour-layout h3 {display:block;margin:1.4rem 0 .9rem}
+}
+@media(max-width:799px) {
+  #checkout .sale-screen,.product-stories .story-shot {background:linear-gradient(135deg,#10201622,#06160c75),var(--scene) center/cover}
+}
+@media(prefers-reduced-motion:no-preference) {
+  @supports (animation-timeline:view()) {
+    .field-photos img,.signing-shot img,.hero-art img,.story-grid .story-shot img,#checkout li img {
+      animation:lift-screen linear both;animation-timeline:view();animation-range:entry 0% exit 100%
+    }
+    @keyframes lift-screen {from {translate:0 5%} to {translate:0 -5%}}
+  }
+}
+@media(prefers-reduced-motion:reduce) {
+  .tour-stage::before,.tour-stage .in-view,.tour-stage .story-shot,.tour-stage .sale-screen,.tour-layout li::before,.tour-layout figcaption::before {transition:none}
+}
+@media(min-width:960px) {
+  .choice-section > .wrap {display:grid;grid-template-columns:1fr 1.8fr;column-gap:3rem}
+  .choice-section h2 {font-weight:700;max-width:13ch}
+  .choice-links {grid-column:2}
 }
