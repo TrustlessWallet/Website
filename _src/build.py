@@ -1,11 +1,13 @@
 """Generate the static website. Run with Python 3.9+ from any directory."""
 import argparse
+import hashlib
 import json
 import posixpath
+from functools import lru_cache
 from html import escape
 from html.parser import HTMLParser
 from pathlib import Path
-from urllib.parse import urlsplit
+from urllib.parse import urlsplit, urlunsplit
 
 ROOT = Path(__file__).resolve().parent.parent
 PAGES = ROOT / "_src" / "pages"
@@ -14,6 +16,11 @@ SWITCH_LABEL = {"en": "Language", "it": "Lingua", "es": "Idioma"}
 
 def route(lang, page):
     return page if lang == "en" else lang + "/" + page
+
+@lru_cache(maxsize=None)
+def asset_version(target):
+    return hashlib.sha256((ROOT / target).read_bytes()).hexdigest()[:12]
+
 
 class Renderer(HTMLParser):
     def __init__(self, page, lang, dictionary, keys):
@@ -40,7 +47,11 @@ class Renderer(HTMLParser):
         target = posixpath.normpath(posixpath.join(posixpath.dirname(self.page), url.path))
         if (PAGES / target).is_file():
             target = route(self.lang, target)
-        return self.relative(target) + ("#" + url.fragment if url.fragment else "")
+        query = url.query
+        if target.endswith((".css", ".js")):
+            version = "v=" + asset_version(target)
+            query = f"{query}&{version}" if query else version
+        return urlunsplit(("", "", self.relative(target), query, url.fragment))
 
     def picker(self):
         flag, name = LANGUAGES[self.lang]
