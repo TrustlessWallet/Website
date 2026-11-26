@@ -153,3 +153,6 @@ img { max-width: 100%; display: block }
   .hero h1 {font-size:clamp(2.4rem,8.65vw,3.5rem)}
   .cross-link .button {white-space:normal}
 }
+
+.wordmark {display:inline-flex;align-items:center;gap:.36em}
+.wordmark::before {content:"";width:1em;height:1em;background:white url("assets/icon-32.png") center/contain no-repeat;border-radius:.18em}
