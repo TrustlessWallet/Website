@@ -64,10 +64,9 @@
   .hero::after {background:linear-gradient(180deg,var(--plate) 40%,transparent 70%)}
 }
 
-/* Art direction follows the place where the wallet is used. */
-.wallet {--scene:url("alpine-lake.webp");--tour-ink:#fbb05a}
-.merchant {--scene:url("coffee-counter.webp");--tour-ink:#9ed9bd}
-.field-photos {background:linear-gradient(0deg,#10251b73,transparent),url("alpine-lake.webp") center/cover}
+/* The product is the exhibit. Colored light stays behind the device. */
+.wallet {--studio:#35291f;--glow:#9b6238;--tour-ink:#ffd3a5}
+.merchant {--studio:#132923;--glow:#518873;--tour-ink:#bcf7da}
 .field-photos::before {display:none}
 #checkout,.product-stories {counter-reset:chapter}
 #checkout li,.product-story {counter-increment:chapter}
@@ -83,7 +82,7 @@
     position:sticky;top:6svh;height:88svh;max-height:52rem;overflow:hidden;
     isolation:isolate;background:#1b2724;border-radius:.55rem
   }
-  .tour-stage::before {content:"";position:absolute;inset:-5%;background:linear-gradient(135deg,#08100b22,#08100b88),var(--scene) center/cover;transform:scale(1.08) translateX(calc(var(--chapter,0)*-1%));transition:transform .8s}
+  .tour-stage::before {content:"";position:absolute;inset:-5%;background:radial-gradient(ellipse at 55% 44%,var(--glow),transparent 64%),linear-gradient(145deg,var(--studio) 38%,#101311 38.15%,var(--studio) 80%);transform:scale(1.08) translateX(calc(var(--chapter,0)*-1%));transition:transform .8s}
   .tour-stage .sale-screen,.tour-stage .story-shot {
     position:absolute;inset:0;display:grid;place-items:center;margin:0;background:transparent;
     border:0;height:100%;padding:2rem;opacity:0;pointer-events:none;transform:translateY(3rem) rotate(4deg) scale(.94);
@@ -101,7 +100,7 @@
   .tour-layout h3 {display:block;margin:1.4rem 0 .9rem}
 }
 @media(max-width:799px) {
-  #checkout .sale-screen,.product-stories .story-shot {background:linear-gradient(135deg,#10201622,#06160c75),var(--scene) center/cover}
+  #checkout .sale-screen,.product-stories .story-shot {background:radial-gradient(ellipse at 50% 35%,var(--glow),var(--studio) 80%)}
 }
 @media(prefers-reduced-motion:no-preference) {
   @supports (animation-timeline:view()) {
@@ -118,4 +117,107 @@
   .choice-section > .wrap {display:grid;grid-template-columns:1fr 1.8fr;column-gap:3rem}
   .choice-section h2 {font-weight:700;max-width:13ch}
   .choice-links {grid-column:2}
+}
+
+/* Device and detail plate. The inset enlarges the very same app capture. */
+.tour-stage {border:1px solid #ffffff27}
+.tour-stage .screen-expand {transform:translateX(-15%) rotate(-4deg)}
+.tour-detail {
+  position:absolute;right:4%;top:39%;width:clamp(6rem,29%,14rem);aspect-ratio:1;
+  border-radius:50%;border:3px solid var(--tour-ink);pointer-events:none;
+  background-color:var(--studio);background-size:190% auto;background-position:50% 43%;
+  box-shadow:0 0 0 .45rem #10161155,0 1rem 2rem #0006
+}
+.tour-detail[data-screen="invoice"] {background-position:50% 57%}
+.tour-detail[data-screen="payment-received"] {background-size:145% auto;background-position:50% 48%}
+.tour-detail[data-screen="sales"] {background-position:13% 86%}
+.tour-detail[data-screen="catalog"] {background-position:15% 20%}
+.tour-detail[data-screen="basket"] {background-position:50% 24%}
+.tour-detail[data-screen="receive"] {background-position:50% 27%}
+.tour-detail[data-screen="node"] {background-position:19% 48%}
+.tour-detail[data-screen="coins"] {background-position:17% 24%}
+.tour-controls {
+  position:absolute;bottom:1rem;left:50%;transform:translateX(-50%);z-index:2;
+  display:flex;padding:.23rem;background:#101511;border:1px solid #ffffff38;border-radius:2rem
+}
+.tour-controls button {color:#dedfdc;background:transparent;border:0;border-radius:2rem;min-width:3rem;min-height:2.7rem;font:400 .9rem var(--mono);cursor:pointer}
+.tour-controls button[aria-pressed="true"] {color:#15201a;background:var(--tour-ink)}
+.page-jumps {gap:0;padding-block:0;justify-content:space-between}
+.page-jumps a {flex:1;text-align:center;border:0;border-radius:0;padding:1.15rem .4rem;border-inline-start:1px solid var(--line)}
+.page-jumps a:last-child {border-inline-end:1px solid var(--line)}
+.choice-section {background:#f4efe4;color:#26231d}
+.comparison table {border-collapse:separate;border-spacing:0;font-variant-numeric:tabular-nums}
+.comparison thead th {background:#28251f;padding-block:1.3rem}
+.comparison thead th:last-child {background:#714324}
+.merchant .comparison thead th:last-child {background:#245542}
+.comparison tbody th {font:700 .91rem/1.5 var(--mono)}
+.comparison tbody td:last-child {background:#e5dccb}
+.merchant .comparison tbody td:last-child {background:#dfe9df}
+.choice-links a,.cross-inner .button {display:inline-flex;gap:.6rem;align-items:center}
+.choice-links a::after,.cross-inner .button::after {content:"↗";font-family:var(--mono)}
+.field-section {background:#16251f;color:#f5f3e9}
+.field-section .section-label {color:#b5d6be}
+.field-grid > div > p:not(.section-label) {color:#d3dcd3}
+.field-photos {
+  border-radius:50% 50% .6rem .6rem;padding-block:clamp(2rem,5vw,5rem);
+  background:repeating-radial-gradient(ellipse at 50% 98%,transparent 0 2.15rem,#e4f4df31 2.19rem,transparent 2.25rem),#385546
+}
+.field-photos .screen-expand {filter:drop-shadow(0 .8rem .7rem #07100a66)}
+#offline {background:#e6e1d7;color:#1d211e}
+#offline .section-title {max-width:19ch;font-weight:700}
+#offline ol {gap:0;border-block:1px solid #3336}
+#offline li {list-style:none;counter-increment:sign-step;padding:1.5rem 1.2rem;border:0}
+#offline ol {counter-reset:sign-step}
+#offline li + li {border-inline-start:1px solid #3336}
+#offline li::before {content:counter(sign-step,decimal-leading-zero);display:block;font:400 2rem var(--mono);color:#665646;margin-bottom:1rem}
+#offline li p {color:#414842}
+.signing-example {background:#181c19;color:#f5eee2;align-items:center;border-radius:.5rem}
+.signing-example p {color:#c6c8be}
+.signing-shot {background:radial-gradient(ellipse at center,#68563f,#212620 72%);border-radius:.3rem}
+.signing-example dl {border-block:1px solid #c9b288}
+.signing-example dl div {padding:.85rem 0;border-color:#585a4e}
+.signing-example dl div:last-child {color:#ffd49c;font-size:1.15rem}
+.band {background:var(--bg)}
+.questions details {border:0;border-bottom:1px solid var(--line)}
+.questions summary {font:400 clamp(1rem,1.55vw,1.35rem)/1.4 var(--mono);padding-block:1.35rem}
+.questions details[open] {background:var(--panel);padding-inline:1rem;box-shadow:inset 3px 0 var(--accent)}
+.cross-link {position:relative;isolation:isolate;overflow:hidden;background:#bcddcb;color:#12231a;padding-block:clamp(4rem,9vw,9rem)}
+.merchant .cross-link {background:#efb378;color:#342319}
+.cross-link::before {content:"";position:absolute;z-index:-1;right:-6%;bottom:-70%;width:min(62vw,46rem);aspect-ratio:1;background:currentColor;opacity:.13;mask:url("engraving.png") center/contain no-repeat luminance}
+.cross-link h2 {max-width:17ch;font-size:clamp(2.1rem,5vw,5rem);line-height:1}
+.cross-inner .button {border-radius:0;background:#16221a}
+@media(max-width:720px) {
+  #offline li + li {border-inline-start:0;border-top:1px solid #3336}
+  .page-jumps {display:grid;grid-template-columns:1fr 1fr}
+  .page-jumps a {border-block-end:1px solid var(--line)}
+}
+@media(prefers-reduced-motion:no-preference) {
+  @supports(animation-timeline:view()) {
+    .hero-art-primary {animation:unfold-primary linear both;animation-timeline:view();animation-range:exit}
+    .hero-art-secondary {animation:unfold-secondary linear both;animation-timeline:view();animation-range:exit}
+    @keyframes unfold-primary {to {rotate:-8deg;translate:-6% 8%}}
+    @keyframes unfold-secondary {to {rotate:8deg;translate:6% -8%}}
+  }
+}
+@media(max-width:799px), (max-height:519px) {
+  .tour-layout .tour-stage {
+    position:relative;isolation:isolate;height:clamp(17rem,52svh,28rem);overflow:hidden;
+    background:radial-gradient(ellipse at 42% 40%,var(--glow),var(--studio) 78%);border-radius:.6rem
+  }
+  .tour-stage .story-shot,.tour-stage .sale-screen {
+    position:absolute;inset:0;display:grid;place-items:center;margin:0;height:100%;
+    padding:1rem 0 3.7rem;background:transparent;border:0;opacity:0;visibility:hidden
+  }
+  .tour-stage .in-view {opacity:1;visibility:visible}
+  .tour-stage .screen-expand,.tour-stage img {height:100%;width:auto;min-height:0;max-height:100%}
+  .tour-controls {bottom:.42rem}
+  .tour-detail {width:25%;top:31%;right:7%}
+  .tour-layout .story-grid,.tour-layout > ol {display:block;margin:1rem 0 0}
+  .tour-layout .product-story:not(.current-step),.tour-layout li:not(.current-step) {display:none}
+  .tour-layout h3::before {display:none!important}
+  .tour-layout .current-step {margin:0}
+  @media(prefers-reduced-motion:no-preference) {
+    .tour-stage .in-view {animation:phone-in .35s ease-out both}
+    @keyframes phone-in {from {opacity:.2;transform:translateX(4%) rotate(2deg)}}
+  }
 }

@@ -81,3 +81,12 @@
 .g-answer summary:hover { color:var(--accent); }
 .g-answer details p { max-width:66ch; margin:0; color:var(--muted); font-size:1rem; line-height:1.65; }
 .g-answer details a { display:inline-block; margin:.6rem 0 1.2rem; font-size:.98rem; color:var(--fg); text-decoration:underline; text-underline-offset:.22em; }
+
+.g-title {border-inline-start:.38rem solid var(--accent);padding-inline-start:clamp(1rem,3vw,2.7rem)}
+.g-title h1 {font-weight:700;line-height:1.02}
+.g-index .g-search {max-width:none;padding:clamp(1rem,3vw,2.2rem);background:var(--panel);border:1px solid var(--line);border-radius:.45rem}
+.g-search-field {background:var(--bg);border-radius:.2rem}
+.g-category h2 {max-width:14ch}
+.g-toc {border:1px solid var(--line);border-top:3px solid var(--accent);padding:1.2rem;background:var(--panel)}
+.g-section + .g-section {border-top:1px solid var(--line);padding-top:2rem}
+.g-help {background:var(--panel);border-inline-start:3px solid var(--accent);padding:clamp(1rem,3vw,2rem)}
