@@ -32,10 +32,6 @@ const mountTours = () => {
       return button;
     });
     stage.append(controls);
-    const detail = document.createElement('div');
-    detail.className = 'tour-detail';
-    detail.setAttribute('aria-hidden', 'true');
-    stage.append(detail);
     let current = -1;
     let frame = 0;
     function select(next) {
@@ -47,9 +43,6 @@ const mountTours = () => {
         steps[i].classList.toggle('current-step', i === next);
       });
       buttons.forEach((button, i) => button.setAttribute('aria-pressed', String(i === next)));
-      const image = shots[next].querySelector('img');
-      detail.style.backgroundImage = 'url("' + image.src + '")';
-      detail.dataset.screen = image.src.split('/').pop().split('.')[0];
       stage.style.setProperty('--chapter', next);
     }
     const sync = () => {

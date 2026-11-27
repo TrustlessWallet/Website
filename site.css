@@ -35,7 +35,7 @@ img { max-width: 100%; display: block }
 .skip-link:focus { transform: none }
 .site-header { color: var(--fg); background: var(--bg); border-bottom: 1px solid var(--line) }
 .header-inner { display: flex; align-items: center; gap: clamp(1rem,4vw,4rem); min-height: 80px }
-.wordmark { display: inline-block; font-size: 1.7rem; font-weight: 780; line-height: 1; letter-spacing: -.085em; text-decoration: none }
+.wordmark { display: inline-block; font-size: 1.7rem; font-weight: 780; line-height: 1; letter-spacing: -.045em; text-decoration: none }
 .primary-nav { display: flex; gap: clamp(1rem,3vw,2.5rem); margin-left: auto; align-items: center }
 .primary-nav a, .header-download { font-size: .95rem; text-decoration: none; font-weight: 560 }
 .primary-nav a { color: var(--muted); padding: .55rem 0; position: relative }
@@ -155,10 +155,19 @@ img { max-width: 100%; display: block }
 }
 
 .wordmark {display:inline-flex;align-items:center;gap:.36em}
-.wordmark::before {content:"";width:1em;height:1em;background:white url("assets/favicon-rounded.png") center/contain no-repeat;border-radius:.18em}
+.wordmark::before {content:"";width:1em;height:1em;background:white url("assets/trustless-mark.png") center/contain no-repeat;border-radius:.18em}
 
 .site-footer {padding-block:clamp(3rem,6vw,6rem)}
-.footer-grid .wordmark {font-size:clamp(2.4rem,5vw,5rem);letter-spacing:-.09em}
+.footer-grid .wordmark {font-size:clamp(2.4rem,5vw,5rem);letter-spacing:-.045em}
 .footer-links {align-self:center;gap:.75rem 1.3rem}
 .footer-links a,.footer-links button {font-family:var(--mono);text-decoration-thickness:1px}
 @media(max-width:760px){.footer-links{align-self:flex-start}}
+
+/* The same ink, paper and amber used on the app icon. */
+:root {
+  --brand-amber:#ffab40;
+  --device-surface:
+    linear-gradient(120deg, transparent 42%, #fff1 42.2%, transparent 69%),
+    repeating-linear-gradient(110deg, transparent 0 5px, #ffffff06 5px 6px),
+    linear-gradient(140deg, #47423b, #22211e 58%, #121210);
+}
