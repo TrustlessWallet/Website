@@ -59,18 +59,6 @@
 
 /* The question directory works as native disclosures, even offline or without scripts. */
 .g-index .g-title { margin-bottom:clamp(1.75rem,4vw,3.5rem); }
-.g-index [hidden] { display:none !important; }
-.g-search { margin:0 0 2.3rem; max-width:48rem; }
-.g-search label { display:block; margin:0 0 .65rem; font-size:1rem; font-weight:600; }
-.g-search-field { display:flex; align-items:center; gap:.5rem; padding:.25rem .45rem .25rem 1.1rem; background:var(--panel); color:var(--fg); border:1px solid var(--line); border-radius:.85rem; }
-.g-search-field:focus-within { outline:2px solid var(--accent); outline-offset:2px; }
-.g-search-field input { min-width:0; flex:1; padding:.65rem 0; font:inherit; font-size:1.05rem; line-height:1.6; border:0; outline:0; border-radius:0; color:inherit; background:transparent; appearance:none; }
-.g-search-field input::-webkit-search-cancel-button { display:none; }
-.g-search-field button { flex:none; min-height:44px; max-width:42%; border:0; background:transparent; color:var(--fg); font:inherit; font-size:.9rem; cursor:pointer; text-decoration:underline; text-underline-offset:.2em; }
-.g-search-field button:focus-visible { outline:2px solid var(--accent); }
-.g-result-count { color:var(--muted); font-size:.95rem; margin:.65rem 0; }
-.g-no-results { border-top:1px solid var(--line); padding:2rem 0; }
-.g-no-results p { color:var(--muted); line-height:1.55; max-width:64ch; }
 .g-questions { list-style:none; margin:0; padding:0; }
 .g-answer { border-bottom:1px solid var(--line); }
 .g-answer:last-child { border-bottom:0; }
@@ -84,9 +72,54 @@
 
 .g-title {border-inline-start:.38rem solid var(--accent);padding-inline-start:clamp(1rem,3vw,2.7rem)}
 .g-title h1 {font-weight:700;line-height:1.02}
-.g-index .g-search {max-width:none;padding:clamp(1rem,3vw,2.2rem);background:var(--panel);border:1px solid var(--line);border-radius:.45rem}
-.g-search-field {background:var(--bg);border-radius:.2rem}
 .g-category h2 {max-width:14ch}
 .g-toc {border:1px solid var(--line);border-top:3px solid var(--accent);padding:1.2rem;background:var(--panel)}
 .g-section + .g-section {border-top:1px solid var(--line);padding-top:2rem}
 .g-help {background:var(--panel);border-inline-start:3px solid var(--accent);padding:clamp(1rem,3vw,2rem)}
+
+.g-title {
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  max-width:none;
+  margin-top:1.5rem;
+  padding:clamp(1.6rem,5vw,4.8rem);
+  background:#191715;
+  color:#fff4dc;
+  border:0;
+  border-bottom:3px solid var(--brand-amber);
+}
+.g-title::before {
+  content:"";
+  position:absolute;
+  z-index:-1;
+  inset:0 0 0 50%;
+  background:var(--brand-amber);
+  mask:url("../assets/engraving.png") right -7vw center / auto 160% no-repeat luminance;
+  opacity:.12;
+}
+.g-title .g-kicker {color:var(--brand-amber)}
+.g-title > p:not(.g-kicker) {color:#dedad1}
+.g-title-screen {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(6rem,24%);
+  gap:clamp(1rem,4vw,4rem);
+  align-items:center;
+}
+.g-title-screen img {
+  width:auto;
+  height:auto;
+  max-height:clamp(12rem,26vw,20rem);
+  justify-self:center;
+  filter:drop-shadow(0 .8rem .8rem #0007);
+}
+.g-title-screen p {max-width:49ch;color:#dedad1;line-height:1.55}
+.g-directory {display:flex;flex-wrap:wrap;border-block:1px solid var(--line)}
+.g-directory a {flex:1 1 auto;padding:1rem;font:700 .92rem var(--mono);text-decoration:none}
+.g-directory a::after {content:"↓";margin-inline-start:.65rem;color:var(--accent)}
+.g-directory a:hover {background:var(--panel)}
+.g-category[id] {scroll-margin-top:1rem}
+@media(max-width:650px) {
+  .g-title-screen {grid-template-columns:minmax(0,1fr)}
+  .g-title-screen img {width:7.5rem;max-height:none}
+}
